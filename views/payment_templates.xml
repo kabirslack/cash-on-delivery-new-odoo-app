@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="payment_acquirer_cod" model="payment.acquirer">
+            <field name="name">Cash on Delivery</field>
+            <field name="provider">cod</field>
+            <field name="view_template_id" ref="website_sale.payment_acquirer_form"/>
+            <field name="state">enabled</field>
+        </record>
+
+        <template id="payment_cod_form" inherit_id="website_sale.payment_acquirer_form">
+            <xpath expr="//div[@id='payment_method']" position="inside">
+                <div t-if="acquirer.provider == 'cod'">
+                    <label for="cod">Cash on Delivery</label>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
